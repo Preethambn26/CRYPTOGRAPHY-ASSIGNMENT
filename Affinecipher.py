@@ -18,7 +18,6 @@ def encrypt(text, key):
   
   return ''.join([ chr((( key[0]*(ord(t) - ord('A')) + key[1] ) % 26) + ord('A')) for t in text.upper().replace(' ', '') ]) 
 
-
 def decrypt(cipher, key): 
   
   return ''.join([ chr((( modinv(key[0], 26)*(ord(c) - ord('A') - key[1])) % 26) + ord('A')) for c in cipher ]) 
@@ -27,15 +26,12 @@ def decrypt(cipher, key):
 def main(): 
   text = 'PREETHAM'
   key = [7, 20] 
-
-  # calling encryption function 
+ 
   enc_text = encrypt(text, key) 
 
   print('Encrypted Text: {}'.format(enc_text)) 
 
-  # calling decryption function 
   print('Decrypted Text: {}'.format(decrypt(enc_text, key) )) 
-
 
 if __name__ == '__main__': 
   main() 
