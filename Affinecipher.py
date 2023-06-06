@@ -10,20 +10,20 @@ def egcd(a, b):
 def modinv(a, m): 
   gcd, x, y = egcd(a, m) 
   if gcd != 1: 
-    return None # modular inverse does not exist 
+    return None  
   else: 
     return x % m 
  
 def encrypt(text, key): 
-  #E = (a*x + b) % 26 
+  
   return ''.join([ chr((( key[0]*(ord(t) - ord('A')) + key[1] ) % 26) + ord('A')) for t in text.upper().replace(' ', '') ]) 
 
 
 def decrypt(cipher, key): 
-  #D(E) = (a^-1 * (E - b)) % 26
+  
   return ''.join([ chr((( modinv(key[0], 26)*(ord(c) - ord('A') - key[1])) % 26) + ord('A')) for c in cipher ]) 
 
-# Driver Code to test the above functions 
+
 def main(): 
   text = 'PREETHAM'
   key = [7, 20] 
