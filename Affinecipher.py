@@ -25,7 +25,7 @@ def decrypt(cipher, key):
 
 # Driver Code to test the above functions 
 def main(): 
-  text = 'PREETHAM'
+  text = 'PREETHAM ABHI'
   key = [8, 19] 
 
   # calling encryption function 
